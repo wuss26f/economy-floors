@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 @font-face{
     src: url(fonts/Roboto_Condensed-Light.ttf);
     font-family: Roboto-Light;
@@ -451,40 +455,41 @@ footer {
 }
 /* ✅ Put this at the very bottom of your style.css */
 @media (max-width: 768px) {
-    /* ✅ Prevent horizontal scrolling on body */
     body {
+        width: 100vw;
+        max-width: 100%;
         overflow-x: hidden;
     }
 
-    /* ✅ Keep header items inside the screen */
     header {
-        padding: 10px;
-        flex-wrap: wrap;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        position: relative;
     }
 
     .logo {
         margin-top: 0;
-        margin-left: 0;
-        max-width: 60%;
     }
 
     .logo img {
-        width: 100%;
+        max-width: 200px;
         height: auto;
     }
 
     .dropdown-icon {
         margin: 0;
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 15px;
+        right: 20px;
     }
 
     .icon i {
         font-size: 30px;
     }
 
-    /* Already discussed: keep everything inside screen */
     .flooring-section,
     .countertop-section {
         width: 100%;
@@ -517,4 +522,5 @@ footer {
         padding: 15px;
     }
 }
+
 
