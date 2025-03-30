@@ -480,15 +480,24 @@ footer {
     }
 
     .dropdown-icon {
-        margin: 0;
-        position: absolute;
-        top: 15px;
-        right: 20px;
+        position: static;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 10px;
     }
-
+    
     .icon i {
         font-size: 30px;
     }
+    
+    .dropdown-content {
+        position: absolute;
+        right: 10px;
+        top: 50px;
+        transform: none;
+    }    
 
     .flooring-section,
     .countertop-section {
