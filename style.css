@@ -451,35 +451,51 @@ footer {
 }
 /* ✅ Put this at the very bottom of your style.css */
 @media (max-width: 768px) {
-    /* Smaller logo for phones */
+    /* ✅ Prevent horizontal scrolling on body */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* ✅ Keep header items inside the screen */
+    header {
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        margin-top: 0;
+        margin-left: 0;
+        max-width: 60%;
+    }
+
     .logo img {
-        width: 200px;
-        margin-top: 10px;
+        width: 100%;
+        height: auto;
     }
 
-    /* Tighter dropdown icon spacing */
     .dropdown-icon {
-        margin-right: 20px;
-        margin-top: 10px;
+        margin: 0;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 
-    /* Make both product sections fit smaller screens */
+    .icon i {
+        font-size: 30px;
+    }
+
+    /* Already discussed: keep everything inside screen */
     .flooring-section,
     .countertop-section {
         width: 100%;
         padding: 0 10px;
-        box-sizing: border-box;
-        margin-top: 50px;
     }
 
-    /* Logo boxes scale down */
     .box {
         width: 45vw;
-        height: auto;
         aspect-ratio: 3 / 2;
     }
 
-    /* Fix overflow from the About Us section */
     .about-sum {
         position: relative;
         max-height: none;
@@ -490,18 +506,12 @@ footer {
         transform: none;
     }
 
-    /* Contact form cleanup for small screens */
     .contact-form {
         width: 90%;
         margin: 80px auto;
         padding: 15px;
     }
 
-    .contact-form textarea {
-        width: 100%;
-    }
-
-    /* Footer stays readable */
     footer {
         position: relative;
         padding: 15px;
