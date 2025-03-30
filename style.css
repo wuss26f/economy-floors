@@ -1,0 +1,451 @@
+@font-face{
+    src: url(fonts/Roboto_Condensed-Light.ttf);
+    font-family: Roboto-Light;
+}
+@font-face{
+    src: url(fonts/AtkinsonHyperlegibleNext-Light.ttf);
+    font-family: Atkinson;
+}
+@font-face{
+    src: url(fonts/DMSans-VariableFont_opsz,wght.ttf);
+    font-family: DmSans;
+}
+@font-face{
+    src: url(fonts/Montserrat-Regular.ttf);
+    font-family: Montserrat;
+}
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+body{
+    background: none;
+}
+body.home-page {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+body.home-page .background-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+}
+body.home-page .background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 2s ease-in-out;
+    z-index: -1;
+}
+  
+#bg1 {
+    opacity: 1;
+}
+  
+#bg2 {
+    opacity: 0;
+}
+  
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent; /* Keep background fully see-through */
+    padding: 5px 20px;
+    height: 60px; /* Smaller height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main{
+    flex: 1;
+}
+.logo{
+    margin-top: 40px;
+}
+.logo img{
+    width: 350px;
+    height: auto;
+}
+.dropdown-icon{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 100px;
+    margin-top: 40px;
+}
+.icon{
+    display: inline-block;
+    position: relative;
+}
+.icon i{
+    font-size: 50px;
+    color: hsl(0, 0%, 100%);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+.dropdown-icon:hover .icon i{
+    transform: translateY(-2px);
+}
+.dropdown-icon .dropdown-content {
+    font-family: Montserrat, verdana, arial;
+    font-size: 18px;
+    position: absolute;
+    background-color: hsl(207, 100%, 43%);
+    color: hsl(0, 0%, 100%);
+    min-width: 150px;
+    box-shadow: 2px 2px 5px hsla(30, 25%, 2%, 0.795);
+    z-index: 1;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%); /* Offsets it properly */
+    top: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+.dropdown-icon:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Ensures it smoothly fades in */
+}
+.dropdown-content a {
+    font-family: Montserrat, verdana, arial;
+    display: block;
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease-out, color 0.3s ease;
+    will-change: transform, font-weight;
+    backface-visibility: hidden;/* These 4 lines prevent the text from blurring when hovered on*/
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.dropdown-content a:hover {
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 2px 2px 5px hsla(0, 0%, 100%, 0.3); /* Add shadow effect */
+}
+.dropdown-content a:hover{
+    transform: translateY(-2px);
+}
+.dropdown-content::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0px;
+    height: 3px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+/*Contact Page*/
+
+.contact-page{
+    background-image: url(images/store11.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover; /* Changed from 3000px to cover for better scaling */
+    min-height: 100vh;
+}
+.contact-form {
+    font-family: Montserrat, verdana, arial;
+    flex: 2;
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    /*box-shadow: 8px 8px 16px hsla(0, 0%, 0%, 0.2);*/
+}
+.contact-form h2{
+    font-family: Montserrat, verdana, arial;
+    color: hsl(0, 0%, 100%);
+    text-shadow: 
+      -1px -1px 0 black, /*This code adds a outline for any text.*/ 
+       1px -1px 0 black,
+      -1px  1px 0 black,
+       1px  1px 0 black;
+}
+/* Labels */
+.contact-form label {
+    font-family: Montserrat, verdana, arial;
+    display: block;
+    font-size: 20px;
+    color: hsl(0, 0%, 100%);
+    margin-bottom: 8px;
+    text-shadow: 
+      -1px -1px 0 black,  
+       1px -1px 0 black,
+      -1px  1px 0 black,
+       1px  1px 0 black;
+}
+  
+/* Input Fields */
+.contact-form input[type="email"],
+.contact-form textarea {
+    font-family: Montserrat, verdana, arial;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid hsl(0, 0%, 78%);
+    border-radius: 5px;
+    background: hsla(0, 0%, 100%, 0.9);
+    color: hsl(0, 0%, 0%);
+    outline: none;
+    box-sizing: border-box;
+}
+  
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    font-family: Montserrat, verdana, arial;
+    border-color: hsl(0, 0%, 0%);
+}
+  /* Comment Box */
+  .comment-box {
+    margin-top: 20px;
+}
+  /* Submit & Reset Buttons */
+.contact-form input[type="submit"],
+.contact-form input[type="reset"] {
+    font-family: Montserrat, verdana, arial;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 0%);
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+.contact-form input[type="submit"]:hover,
+.contact-form input[type="reset"]:hover {
+    background-color: hsla(0, 0%, 100%, 0.8);
+}
+.comment-box textarea{/*This code eliminates the resize handle on the bottom right corner of a box like a comment box.*/
+    resize: none;
+}
+  /*About Page*/
+.about-page {
+    background-image: url(images/store8.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover; /* Changed from 3000px to cover for better scaling */
+    min-height: 100vh;
+}
+  /* Ensure content spacing from fixed header */
+.about-page main {
+    padding-top: 140px;
+}
+  /* Main content wrapper */
+.about-sum {
+    font-family: 'Montserrat', Verdana, Arial, sans-serif;
+    color: #ffffff;
+    width: 90%;
+    max-width: 900px;
+    max-height: 70vh; /* Box height limit */
+    position: fixed; /* Make the box stay in place */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfectly center it */
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6); /* Transparent dark background */
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Scroll text inside */
+    margin-top: 50px;
+}
+.about-sum::-webkit-scrollbar {
+    width: 10px;
+}
+.about-sum::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+.about-sum::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+  /* About Us header */
+.about-header {
+    
+    text-decoration: underline;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+  /* Section headings */
+.about-sub h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #ffd700; /* Optional: gold accent heading */
+}
+  /* Paragraphs */
+.about-sub p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+   /* List styles */
+.about-sub ul {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+.about-sub li {
+    font-size: 18px;
+    line-height: 1.6;
+    list-style-type: disc;
+}
+  
+  /* Optional: smooth fade on scroll */
+.about-sub {
+    transition: all 0.3s ease;
+}
+/*Product Page*/
+/* Container holds both sections side by side */
+.product-page{
+    background-image: url(images/store19.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover; /* Changed from 3000px to cover for better scaling */
+    min-height: 100vh;
+}
+.logo-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    padding: 40px 20px;
+    flex-wrap: wrap; /* Allows responsiveness */
+    margin-top: 10px;
+}
+  
+  /* Each column */
+.flooring-section,
+.countertop-section {
+    margin-top: 100px;
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+  /* Headings stay fixed in layout */
+.flooring-section h2,
+.countertop-section h2 {
+    font-family: 'Montserrat', Verdana, Arial, sans-serif;
+    margin-bottom: 15px;
+    font-size: 3rem;
+    text-shadow: 3px 3px 5px hsl(0, 0%, 65%);
+}
+  
+  /* Scrollable logo area */
+.logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    overflow-y: auto;
+    max-height: 600px; /* Adjust height as needed */
+    padding-right: 5px;
+}
+  
+  /* Uniform logo box */
+.box {
+    width: 150px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 10px hsl(0, 0%, 0%);
+    padding: 10px;
+}
+  
+  /* Uniform logo size */
+.box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.logos::-webkit-scrollbar {
+    width: 8px;
+}
+.logos::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+a {
+    text-decoration: none;
+}
+  
+a .box {
+    transition: transform 0.2s ease;
+ }
+  
+a .box:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+footer {
+    font-family: 'Montserrat', Verdana, Arial, sans-serif;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    z-index: 1000;
+    padding: 5px 10px;      /* Gives space around text */
+    line-height: 1.4;
+    height: auto;           /* Let footer grow naturally */
+}
+
+#copyright {
+    margin: 0 auto;
+    padding: 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: hsl(0, 0%, 0%);
+    white-space: normal;    /* Allow wrapping */
+    line-height: 1.4;
+}
+
+#copyright a {
+    color: hsl(0, 0%, 0%);
+    font-size: 12px;
+    text-decoration: none;
+}
+@keyframes backgroundCycle {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
