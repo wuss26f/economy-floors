@@ -10,16 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b030eac0b8.js" crossorigin="anonymous"></script> 
 </head>
+
 <body class="home-page">
     <header>
         <div class="logo">
-            <img src="images/economy-logo.png" alt="Logo of economy floors">
+            <img src="images/econ.png" alt="Logo of economy floors">
         </div>
         <div class="dropdown-icon">
             <div class="icon">
                 <i class="fa-solid fa-bars"></i>  
             </div>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="mobileNav">
                     <a href="index.html">Home</a>
                     <a href="products.html">Our Products</a>
                     <a href="https://maps.app.goo.gl/oD7v4WBWvDxTtkAV7" target="_blank">Where are we Located</a>
@@ -40,5 +41,11 @@
     </footer>
 
     <script src="index.js"></script>
+    <script>
+        function toggleMenu() {
+          document.getElementById("mobileNav").classList.toggle("active");
+        }
+    </script>
+      
 </body>
 </html>

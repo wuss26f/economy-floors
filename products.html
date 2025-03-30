@@ -19,7 +19,7 @@
             <div class="icon">
                 <i class="fa-solid fa-bars"></i>  
             </div>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="mobileNav">
                     <a href="index.html">Home</a>
                     <a href="products.html">Our Products</a>
                     <a href="https://maps.app.goo.gl/oD7v4WBWvDxTtkAV7" target="_blank">Where are we Located</a>
@@ -297,5 +297,10 @@
     </footer>
 
     <script src="index.js"></script>
+    <script>
+        function toggleMenu() {
+          document.getElementById("mobileNav").classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
