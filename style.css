@@ -449,3 +449,51 @@ footer {
     75% { opacity: 1; }
     100% { opacity: 0; }
 }
+@media (max-width: 768px) {
+    .logo img {
+        width: 200px;
+        margin-top: 10px;
+    }
+
+    .dropdown-icon {
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+
+    .icon i {
+        font-size: 32px;
+    }
+
+    .dropdown-content {
+        font-size: 16px;
+        min-width: 120px;
+    }
+
+    .contact-form,
+    .about-sum {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .flooring-section,
+    .countertop-section {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .box {
+        width: 100px;
+        height: 80px;
+    }
+
+    .product-page .logo-container {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    footer {
+        font-size: 10px;
+        padding: 5px;
+    }
+}
+
