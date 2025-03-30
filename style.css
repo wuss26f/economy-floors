@@ -455,6 +455,17 @@ footer {
 }
 /* ✅ Put this at the very bottom of your style.css */
 @media (max-width: 768px) {
+    /* ✅ Applies to all your page types with background images */
+    .home-page,
+    .about-page,
+    .contact-page,
+    .product-page {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll; /* change from fixed to scroll for mobile friendliness */
+    }
+
     body {
         width: 100vw;
         max-width: 100%;
@@ -471,11 +482,14 @@ footer {
     }
 
     .logo {
-        margin-top: 0;
+        max-width: 80%;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .logo img {
-        max-width: 200px;
+        width: 2000px;
+        max-width: 100%;
         height: auto;
     }
 
