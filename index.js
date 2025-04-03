@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
         dropdown.classList.toggle("show");
     });
 
+        // ✅ Close dropdown when clicking a link inside it
+    document.querySelectorAll(".dropdown-content a").forEach(link => {
+        link.addEventListener("click", () => {
+            dropdown.classList.remove("show");
+        });
+    });
+
     // Close dropdown when clicking outside
     document.addEventListener("click", (event) => {
         if (!menuIcon?.contains(event.target) && !dropdown?.contains(event.target)) {
