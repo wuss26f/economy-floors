@@ -19,7 +19,7 @@
     font-family: Montserrat;
 }
 html{
-  font-size: 16px;
+    font-size: 16px;
 }
 html, body{
     height: 100%;
@@ -29,7 +29,16 @@ html, body{
     flex-direction: column;
 }
 body{
+    background-color: hsl(0, 0%, 0%);
     background: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+body.loaded{
+    opacity: 1;
+}
+body.fade-out{
+    opacity: 0;
 }
 body.home-page {
     position: relative;
@@ -62,7 +71,22 @@ body.home-page .background-layer {
     transition: opacity 2s ease-in-out;
     z-index: -1;
 }
-  
+body.fade-out .background-layer{
+    opacity: 0 !important;
+    transition: opacity 0.4s ease-in-out;
+}
+.background-layer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
 #bg1 {
     opacity: 1;
 }

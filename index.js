@@ -1,8 +1,43 @@
+// ✅ This will always fade the page in — no blank screen risk
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const menuIcon = document.querySelector(".dropdown-icon");
     const dropdown = document.querySelector(".dropdown-content");
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
+
+        // Force dropdown to be closed on page load
+    dropdown?.classList.remove("show");
+
+    // Add fade-out effect on link clicks before navigating
+    document.querySelectorAll("a").forEach(link => {
+        const href = link.getAttribute("href");
+
+        // Skip if it's an anchor link or opens in a new tab
+        if (!href || href.startsWith("#") || link.target === "_blank") return;
+
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.body.classList.remove("loaded");
+            document.body.classList.add("fade-out");
+
+                // Fade out both bg layers right away
+            const bg1 = document.getElementById('bg1');
+            const bg2 = document.getElementById('bg2');
+            if (bg1) bg1.style.opacity = '0';
+            if (bg2) bg2.style.opacity = '0';
+
+            // Delay page change until fade completes
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 400);
+        });
+    });
+
 
     // Dropdown toggle
     menuIcon?.addEventListener("click", () => {
