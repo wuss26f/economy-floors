@@ -1,23 +1,26 @@
 * {
     box-sizing: border-box;
 }
+/* Overlay that covers screen for transition */
+#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
 
-@font-face{
-    src: url(fonts/Roboto_Condensed-Light.ttf);
-    font-family: Roboto-Light;
+/* Active fade-out */
+#transition-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
-@font-face{
-    src: url(fonts/AtkinsonHyperlegibleNext-Light.ttf);
-    font-family: Atkinson;
-}
-@font-face{
-    src: url(fonts/DMSans-VariableFont_opsz,wght.ttf);
-    font-family: DmSans;
-}
-@font-face{
-    src: url(fonts/Montserrat-Regular.ttf);
-    font-family: Montserrat;
-}
+
 html{
     font-size: 16px;
 }
@@ -30,6 +33,9 @@ html, body{
 }
 body{
     background-color: hsl(0, 0%, 0%);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     background: none;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -517,12 +523,11 @@ footer {
     font-size: 12px;
     text-decoration: none;
 }
-@keyframes backgroundCycle {
-    0% { opacity: 0; }
-    25% { opacity: 1; }
-    75% { opacity: 1; }
-    100% { opacity: 0; }
-}
+
+
+
+
+
 @media (max-width: 768px) {
     html, body {
       width: 100vw;
@@ -532,6 +537,10 @@ footer {
       line-height: 1.5;
     }
   
+    
+    
+    
+    
     /* Header & Logo */
     header {
       flex-direction: column;
@@ -543,20 +552,16 @@ footer {
         top: 55%;
         padding: 20px;
     }
-      
-      .hero-message h1 {
+    .hero-message h1 {
         font-size: 1.8rem;
     }
-      
-      .hero-message p {
+    .hero-message p {
         font-size: 1rem;
     }
-      
-      .cta-button {
+    .cta-button {
         padding: 10px 20px;
         font-size: 1rem;
     }
-      
     .logo {
         position: absolute;
         
@@ -573,6 +578,8 @@ footer {
     }
       
   
+    
+    
     /* Dropdown Icon */
     .dropdown-icon {
       position: absolute;
@@ -580,14 +587,11 @@ footer {
       right: -50px;
       z-index: 1001;
     }
-  
     .icon i {
       font-size: 30px;
       color: #fff;
       cursor: pointer;
     }
-  
-    /* Mobile Menu */
     .dropdown-content {
       position: fixed;
       top: 60px;
@@ -601,11 +605,9 @@ footer {
       transition: right 0.3s ease-in-out;
       z-index: 1000;
     }
-  
     .dropdown-content.show {
       right: 0;
     }
-  
     .dropdown-content a {
       color: white;
       text-decoration: none;
@@ -614,11 +616,14 @@ footer {
       text-align: center;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
-  
     .dropdown-content a:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
   
+    
+    
+    
+    
     /* Contact Page */
     .contact-form {
       width: 90%;
@@ -632,6 +637,10 @@ footer {
       padding: 12px;
     }
   
+    
+    
+    
+    
     /* About Page */
     .about-sum {
       position: relative;
@@ -692,8 +701,17 @@ footer {
     #copyright a {
       font-size: 14px;
     }
-  }
+}
   
+
+
+
+@keyframes backgroundCycle {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
    
 
 
