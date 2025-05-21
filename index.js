@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const menuIcon = document.querySelector(".icon");
+  const menuIcon = document.querySelector(".dropdown-icon");
   const dropdown = document.querySelector(".dropdown-content");
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
