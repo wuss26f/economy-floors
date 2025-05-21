@@ -4,119 +4,34 @@ window.addEventListener("load", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const main = document.getElementById("main-content");
-  const menuIcon = document.querySelector(".dropdown-icon");
+  const menuIcon = document.querySelector(".icon");
   const dropdown = document.querySelector(".dropdown-content");
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
-  const overlay = document.getElementById("transition-overlay");
 
-  // ✅ Route table
-  const routes = {
-    "/": "partials/home.html",
-    "/products.html": "partials/products.html",
-    "/about.html": "partials/about.html",
-    "/contact.html": "partials/contact.html"
-  };
-
-  // ✅ Fade helpers
-  function fadeOut(callback) {
-    overlay?.classList.add("active");
-
-    const bg1 = document.getElementById("bg1");
-    const bg2 = document.getElementById("bg2");
-    if (bg1) bg1.style.opacity = "0";
-    if (bg2) bg2.style.opacity = "0";
-
-    setTimeout(callback, 400);
-  }
-
-  function fadeIn() {
-    overlay?.classList.remove("active");
-    document.body.classList.remove("fade-out");
-    document.body.classList.add("loaded");
-
-    const bg1 = document.getElementById("bg1");
-    const bg2 = document.getElementById("bg2");
-    if (bg1) bg1.style.opacity = "1";
-    if (bg2) bg2.style.opacity = "1";
-  }
-
-  // ✅ Load dynamic content
-  async function loadPage(path) {
-    const file = routes[path];
-    if (!file) {
-      main.innerHTML = "<p>404 - Page Not Found</p>";
-      fadeIn();
-      return;
-    }
-
-    try {
-      const res = await fetch(file);
-      const html = await res.text();
-      main.innerHTML = html;
-      fadeIn();
-    } catch {
-      main.innerHTML = "<p>Failed to load content.</p>";
-      fadeIn();
-    }
-  }
-
-  // ✅ Initial page load
-  loadPage(window.location.pathname);
-
-  // ✅ Handle SPA link clicks
-  document.body.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
-    if (
-      link &&
-      link.origin === window.location.origin &&
-      link.getAttribute("href") in routes
-    ) {
-      e.preventDefault();
-      const path = link.getAttribute("href");
-
-      document.body.classList.remove("loaded");
-      document.body.classList.add("fade-out");
-
-      fadeOut(() => {
-        history.pushState({}, "", path);
-        loadPage(path);
-      });
-    }
-  });
-
-  // ✅ Back/forward button support
-  window.addEventListener("popstate", () => {
-    document.body.classList.remove("loaded");
-    document.body.classList.add("fade-out");
-
-    fadeOut(() => {
-      loadPage(window.location.pathname);
-    });
-  });
-
-  // ✅ Mobile dropdown menu
+  // ✅ Toggle dropdown menu
   menuIcon?.addEventListener("click", () => {
-    dropdown.classList.toggle("show");
+    dropdown?.classList.toggle("show");
   });
 
+  // ✅ Close dropdown when clicking a link inside it
   document.querySelectorAll(".dropdown-content a").forEach((link) => {
     link.addEventListener("click", () => {
-      dropdown.classList.remove("show");
+      dropdown?.classList.remove("show");
     });
   });
 
+  // ✅ Close dropdown if clicking outside
   document.addEventListener("click", (event) => {
     if (
-      !menuIcon?.contains(event.target) &&
-      !dropdown?.contains(event.target)
+      !event.target.closest(".dropdown-icon") &&
+      !event.target.closest(".dropdown-content")
     ) {
       dropdown?.classList.remove("show");
     }
   });
 
-  // ✅ Form submission
+  // ✅ Contact form submission (only runs on contact.html)
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
