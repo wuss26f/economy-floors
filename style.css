@@ -550,16 +550,26 @@ footer {
 
 
 @media (max-width: 768px) {
-    html, body {
+    html, body {  
+      margin: 0;
+      padding: 0;
       width: 100vw;
       max-width: 100%;
-      overflow-x: hidden;
+      max-height: 100vh;
+      overflow-x: hidden; /*stops horizontal scroll*/
       font-size: 16px;
       line-height: 1.5;
     }
-  
     
+
+    *{
+        box-sizing: border-box;
+    }
     
+    img, video, div, section {
+        max-width: 100%;
+        height: auto;
+    }
     
     
     /* Header & Logo */
@@ -688,7 +698,9 @@ footer {
         border-radius: 10px;
         box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);
     }
-  
+    .contact-page footer{
+        margin-bottom: 50px;
+    }
     
     
     
