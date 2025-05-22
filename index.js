@@ -9,8 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   
-
+  // ✅ Force dropdown closed on page load
+  dropdown?.classList.remove("show");
   // Toggle dropdown menu
+  
+  
   menuIcon?.addEventListener("click", () => {
     dropdown?.classList.toggle("show");
   });
@@ -108,8 +111,11 @@ if (document.body.classList.contains("home-page")) {
 }
 
 
-// Fix: Close dropdown on back/forward navigation
+// Fix: Close dropdown on back/forward navigation for STATIC WEBSITES ON GITHUB!
 window.addEventListener("pageshow", () => {
+  // If coming from bfcache or just loaded, force close menu
   const dropdown = document.querySelector(".dropdown-content");
-  dropdown?.classList.remove("show");
+  if (dropdown && dropdown.classList.contains("show")) {
+    dropdown.classList.remove("show");
+  }
 });
