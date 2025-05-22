@@ -109,7 +109,7 @@ if (document.body.classList.contains("home-page")) {
 
 
 // Fix: Close dropdown on back/forward navigation
-window.addEventListener("popstate", () => {
+window.addEventListener("pageshow", () => {
   const dropdown = document.querySelector(".dropdown-content");
   dropdown?.classList.remove("show");
 });
