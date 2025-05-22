@@ -1,4 +1,4 @@
-// ✅ Always fade the page in — no blank screen risk
+// Always fade the page in — no blank screen risk
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
@@ -10,19 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const status = document.getElementById("form-status");
   
 
-  // ✅ Toggle dropdown menu
+  // Toggle dropdown menu
   menuIcon?.addEventListener("click", () => {
     dropdown?.classList.toggle("show");
   });
 
-  // ✅ Close dropdown when clicking a link inside it
+  // Close dropdown when clicking a link inside it
   document.querySelectorAll(".dropdown-content a").forEach((link) => {
     link.addEventListener("click", () => {
       dropdown?.classList.remove("show");
     });
   });
 
-  // ✅ Close dropdown if clicking outside
+  // Close dropdown if clicking outside
   document.addEventListener("click", (event) => {
     if (
       !event.target.closest(".dropdown-icon") &&
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ✅ Contact form submission (only runs on contact.html)
+  // Contact form submission (only runs on contact.html)
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
-          status.textContent = "Message sent! ✅";
+          status.textContent = "Message sent!";
           status.style.color = "green";
           form.reset();
         } else {
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ✅ Homepage slideshow logic
+// Homepage slideshow logic
 if (document.body.classList.contains("home-page")) {
   const images = [
     "images/store3.jpg",
@@ -106,3 +106,10 @@ if (document.body.classList.contains("home-page")) {
 
   setInterval(crossfade, 6000);
 }
+
+
+// Fix: Close dropdown on back/forward navigation
+window.addEventListener("popstate", () => {
+  const dropdown = document.querySelector(".dropdown-content");
+  dropdown?.classList.remove("show");
+});
