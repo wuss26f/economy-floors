@@ -111,11 +111,14 @@ if (document.body.classList.contains("home-page")) {
 }
 
 
-// Fix: Close dropdown on back/forward navigation for STATIC WEBSITES ON GITHUB!
 window.addEventListener("pageshow", () => {
-  // If coming from bfcache or just loaded, force close menu
-  const dropdown = document.querySelector(".dropdown-content");
-  if (dropdown && dropdown.classList.contains("show")) {
-    dropdown.classList.remove("show");
-  }
+  requestAnimationFrame(() => {
+    const dropdown = document.querySelector(".dropdown-content");
+    if (dropdown) {
+      console.log("✅ pageshow fired — closing dropdown");
+      dropdown.classList.remove("show");
+    } else {
+      console.warn("⚠️ dropdown not found on pageshow");
+    }
+  });
 });
