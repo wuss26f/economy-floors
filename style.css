@@ -185,6 +185,29 @@ main{
 .dropdown-icon:hover .icon i{
     transform: translateY(-2px);
 }
+.dropdown-content {
+    font-family: Montserrat, verdana, arial;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    position: absolute;
+    background-color: hsl(207, 100%, 43%);
+    color: hsl(0, 0%, 100%);
+    min-width: 150px;
+    box-shadow: 2px 2px 5px hsla(30, 25%, 2%, 0.795);
+    z-index: 1000;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.dropdown-content.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
 .dropdown-icon .dropdown-content {
     font-family: Montserrat, verdana, arial;
     font-size: clamp(1rem, 1.5vw, 1.2rem);
@@ -210,18 +233,11 @@ main{
     transform: translateX(-50%) translateY(0); /* Ensures it smoothly fades in */
 }
 .dropdown-content a {
-    font-family: Montserrat, verdana, arial;
     display: block;
     color: hsl(0, 0%, 100%);
     text-decoration: none;
     padding: 10px 15px;
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    transition: transform 0.2s ease-out, color 0.3s ease;
-    will-change: transform, font-weight;
-    backface-visibility: hidden;/* These 4 lines prevent the text from blurring when hovered on*/
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 .dropdown-content a:hover {
     transform: scale(1.05); /* Slightly increase size */
@@ -586,44 +602,58 @@ footer {
     
     
     /* Dropdown Icon */
+   
     .dropdown-icon {
-      position: absolute;
-      top: 40px;
-      right: -30px;
-      z-index: 1001;
+        position: fixed;
+        top: 40px;
+        right: -40px;
+        z-index: 9999;
+        width: 50px;
+        height: 50px;
     }
+
     .icon i {
-      font-size: 30px;
-      color: hsl(0, 0%, 100%);
-      cursor: pointer;
+        font-size: 30px;
+        color: hsl(0, 0%, 100%);
+        cursor: pointer;
     }
+
     .dropdown-content {
-      position: fixed;
-      top: 60px;
-      right: 20%;
-      width: 100px;
-      background-color: hsl(207, 100%, 43%);
-      padding-top: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: right 0.3s ease-in-out;
-      z-index: 1000;
+        position: fixed;
+        top: 70px;
+        right: 20px;
+        width: 160px;
+        background-color: hsl(207, 100%, 43%);
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        border-radius: 6px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 9998;
     }
+
     .dropdown-content.show {
-      right: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
+
     .dropdown-content a {
-      color: white;
-      text-decoration: none;
-      padding: 15px 20px;
-      width: 100%;
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 15px 20px;
+        text-align: center;
+        width: 100%;
+        color: hsl(0, 0%, 100%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
-    .dropdown-content a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+
+    .dropdown-content a:active {
+        background-color: rgba(255, 255, 255, 0.1);
     }
+
+
   
   
     
@@ -716,7 +746,7 @@ footer {
       position: relative;
       padding: 20px;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 5px;
     }
   
     #copyright {

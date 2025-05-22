@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdown = document.querySelector(".dropdown-content");
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
+  console.log("menuIcon loaded:", menuIcon);
+
+  menuIcon?.addEventListener("click", () => {
+    console.log("ICON CLICKED ✅");
+    dropdown?.classList.toggle("show");
+  });
 
   // ✅ Toggle dropdown menu
   menuIcon?.addEventListener("click", () => {
